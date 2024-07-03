@@ -1,13 +1,43 @@
 import readlinesync = require("readline-sync");
 import { colors } from "./src/util/Colors";
+import { Conta } from "./src/model/Conta";
 
 export function main() {
 
     let opcao: number;
 
+    //novas intancias da classe conta
+    const c1: Conta = new Conta(1, 1234, 1, 'Júlia Castro', 800000.00);
+    const c2: Conta = new Conta(2, 1234, 2, 'Marcela Sanches', 600000.00);
+    //visualizando o saldo da conta 1
+    c1.visualizar();
+    //visualizando o saldo da conta 2
+    c2.visualizar();
+    //visualizar valor de somente um atributo
+    console.log(`O saldo da conta 01 é: ${c1.saldo} `)
+    //mudando o valor do atributo saldo  da conta 2 com set 
+    c2.saldo = 900000.00;
+    //apresentando o novo valor do atributo saldo da conta 2
+    console.log(`O saldo da conta 02 é: ${c2.saldo}`)
+
+    //saque nas contas
+    console.log(`Sacar 100 reais da Conta C1: ${c1.sacar(100)}`);//true
+    c1.visualizar();
+    console.log(`Sacar 70000.00 reais da Conta C2: ${c2.sacar(1000000)}`);//false
+    c2.visualizar();
+
+    //deposito nas contas
+    console.log(`Depositar 100 reais da Conta C1: `);
+    c1.depositar(200000);
+    c1.visualizar();
+    console.log(`Depositar 70000.00 reais da Conta C2:`);
+    c2.depositar(3000000);
+    c2.visualizar();
+
+
     while (true) {
 
-        console.log() //bg eh background e fg a fonte
+         //bg eh background e fg a fonte
 
         console.log(colors.bg.crimson, colors.fg.cyan,
             "*****************************************************");
@@ -89,5 +119,12 @@ export function sobre(): void {
     console.log("github.com/lidskey");
     console.log("*****************************************************");
 }
+
+function keyPress(): void {
+    console.log(colors.reset, "");
+    console.log("\nPressione enter para continuar...");
+    readlinesync.prompt();
+}
+
 
 main();
