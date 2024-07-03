@@ -14,14 +14,14 @@ export function main() {
     //visualizando o saldo da conta 2
     c2.visualizar();
     //visualizar valor de somente um atributo
-    console.log(`O saldo da conta 01 é: ${c1.saldo} `)
+    console.log(`\nO saldo da conta 01 é: ${c1.saldo} `)
     //mudando o valor do atributo saldo  da conta 2 com set 
     c2.saldo = 900000.00;
     //apresentando o novo valor do atributo saldo da conta 2
-    console.log(`O saldo da conta 02 é: ${c2.saldo}`)
+    console.log(`\nO saldo da conta 02 é: ${c2.saldo}`)
 
     //saque nas contas
-    console.log(`Sacar 100 reais da Conta C1: ${c1.sacar(100)}`);//true
+    console.log(`\nSacar 100 reais da Conta C1: ${c1.sacar(100)}`);//true
     c1.visualizar();
     console.log(`Sacar 70000.00 reais da Conta C2: ${c2.sacar(1000000)}`);//false
     c2.visualizar();
