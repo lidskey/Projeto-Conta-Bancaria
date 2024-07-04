@@ -54,9 +54,6 @@ export function main() {
     cp1.visualizar();
 
 
-
-
-
     while (true) {
 
          //bg eh background e fg a fonte
