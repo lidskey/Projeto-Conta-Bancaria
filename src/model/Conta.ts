@@ -78,7 +78,7 @@ export class Conta {
             return false;
         }
 
-        this.saldo = this.saldo + valor;
+        this.saldo = this.saldo - valor;
         return true;
         
         
@@ -87,7 +87,6 @@ export class Conta {
     //metodo depositar
     public depositar(valor: number): void{
         this._saldo = this._saldo + valor;
-
     }
 
     
@@ -104,7 +103,7 @@ export class Conta {
                 tipo = "Conta Poupança";
                 break;
         }
-
+    
     console.log(`\n***********************************`)
     console.log(`\nDados da Conta: `)
     console.log(`\n***********************************`)
