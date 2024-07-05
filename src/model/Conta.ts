@@ -1,5 +1,6 @@
 import readlinesync = require("readline-sync");
-export class Conta {
+
+export abstract class Conta {
 
     //definir os atributos da classe (caracteristicas)
     private _numero: number;
@@ -114,5 +115,8 @@ export class Conta {
     console.log(`\nSaldo da conta: ${this._saldo}`);
 
 }
+    //exemplo de um metodo abstrato
+   // public abstract teste(): void;
+
 	}
     
