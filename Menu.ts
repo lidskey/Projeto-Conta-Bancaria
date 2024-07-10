@@ -20,23 +20,17 @@ export function main() {
     const contas: ContaController = new ContaController();
 
     // novas instancias da classe ContaCorrente(Objetos)
-    contas.cadastrar(
-        new ContaCorrente(contas.gerarNumero(),1234,1,"Amanda Magro",1000000.0,100000));
-    contas.cadastrar(new ContaCorrente(contas.gerarNumero(), 1234,1,"João da Silva",1000.0,100.0));
+    new ContaCorrente(contas.gerarNumero(),1234,1,"Amanda Magro",1000000.0,100000);
+    new ContaCorrente(contas.gerarNumero(), 1234,1,"João da Silva",1000.0,100.0);
 
-    contas.cadastrar(
-        new ContaPoupanca(contas.gerarNumero(), 123, 2, "Geana Almeida", 10000, 10));
-    contas.cadastrar(
-        new ContaPoupanca(contas.gerarNumero(), 123, 2, "Jean Lima", 15000, 15));
+    new ContaPoupanca(contas.gerarNumero(), 123, 2, "Geana Almeida", 10000, 10);
+    new ContaPoupanca(contas.gerarNumero(), 123, 2, "Jean Lima", 15000, 15);
+
 
     while (true) {
         //bg eh background e fg a fonte
 
-        console.log(
-            colors.bg.crimson,
-            colors.fg.cyan,
-            "*****************************************************"
-        );
+        console.log(colors.bg.crimson,colors.fg.cyan,"");
         console.log("                                                     ");
         console.log("                BANCO DO BRAZIL COM Z                ");
         console.log("                                                     ");
@@ -82,10 +76,9 @@ export function main() {
 
                 switch (tipo) {
                     case 1:
-                        console.log("Digite o Limite da Conta: ");
+                        console.log("\nDigite o Limite da Conta: ");
                         limite = readlinesync.questionFloat(" ");
-                        contas.cadastrar(
-                            new ContaCorrente(contas.gerarNumero(),agencia, tipo, titular, saldo,limite));
+                        contas.cadastrar(new ContaCorrente(contas.gerarNumero(),agencia, tipo, titular, saldo, limite));
 
                         break;
 
@@ -170,13 +163,39 @@ export function main() {
             case 6:
                 console.log("\n\nSaque\n\n");
 
+                console.log("Digite o número da Conta: ")
+                numero = readlinesync.questionInt("");
+
+                console.log("Digite o valor do saque: ")
+                valor = readlinesync.questionFloat("");
+
+                contas.sacar(numero, valor);
+                
+
                 break;
             case 7:
                 console.log("\n\nDepósito\n\n");
+                console.log("Digite o número da Conta: ")
+                numero = readlinesync.questionInt("");
+
+                console.log("Digite o valor do depósito: ")
+                valor = readlinesync.questionFloat("");
+
+                contas.depositar(numero, valor);
 
                 break;
             case 8:
                 console.log("\n\nTransferência entre Contas\n\n");
+                console.log("Digite o número da Conta de Origem: ")
+                numero = readlinesync.questionInt("");
+
+                console.log("Digite o número da Conta de Destino: ")
+                numeroDestino = readlinesync.questionInt("");
+
+                console.log("Digite o valor do saque: ")
+                valor = readlinesync.questionFloat("");
+
+                contas.transferir(numero, numeroDestino, valor);
 
                 break;
             default:
