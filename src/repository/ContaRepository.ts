@@ -1,6 +1,6 @@
 import { Conta } from "../model/Conta";
 
-export interface ContaRepository{
+export interface ContaRepository{ //metodo para todas heranças
 
     //metodos do crud 
     procurarPorNumero(numero: number): void;

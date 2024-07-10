@@ -26,14 +26,31 @@ export class ContaController implements ContaRepository{//implementando a interf
     
     cadastrar(conta: Conta): void {
         this.listaContas.push(conta);
-        console.log("A conta foi cadastrada com sucesso!")
+        
     }
     atualizar(conta: Conta): void {
+        let buscaConta = this.buscarNoArray(conta.numero);
+
+        if (buscaConta !== null) {
+            //this.listaConta[1]=conta; o index of substitui essa função
+          this.listaContas[this.listaContas.indexOf(buscaConta), 1];
+          console.log("\nA conta foi atualizada!");
+        } else
+            console.log("\nA Conta não encontrada!");
+
         
     }
     deletar(numero: number): void {
-        
-    }
+         let buscaConta = this.buscarNoArray(numero);
+
+        if (buscaConta !== null) {
+            this.listaContas.splice(this.listaContas.indexOf(buscaConta), 1)
+            console.log("\nA conta foi excluída!")
+         
+        }   else console.log("\nA Conta não encontrada!");
+        }    
+    
+
     sacar(numero: number, valor: number): void {
         
     }
