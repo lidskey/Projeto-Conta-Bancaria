@@ -2,6 +2,7 @@ import { Conta } from "../model/Conta";
 import { ContaRepository } from "../repository/ContaRepository";
 
 export class ContaController implements ContaRepository {
+  
   //implementando a interface
 
   //coleção array que vai amarzenar os objetos Conta
@@ -46,6 +47,13 @@ export class ContaController implements ContaRepository {
       this.listaContas.splice(this.listaContas.indexOf(buscaConta), 1);
       console.log("\nA conta foi excluída!");
     } else console.log("\nA Conta não foi encontrada!");
+  }
+
+  procurarPorTitular(titular: string): void {
+    let buscaPorTitular = this.listaContas.filter(c => 
+      c.titular.includes(titular)
+    )
+    buscaPorTitular.forEach(conta => conta.visualizar)
   }
 
   sacar(numero: number, valor: number): void {

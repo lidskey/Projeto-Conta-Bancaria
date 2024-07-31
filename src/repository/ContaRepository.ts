@@ -8,6 +8,7 @@ export interface ContaRepository{ //metodo para todas heranças
     cadastrar(conta: Conta): void;
     atualizar(conta: Conta): void;
     deletar(numero: number): void;
+    procurarPorTitular(titular: string): void;
 
     //metodos bancários
     sacar(numero: number, valor: number): void;
