@@ -69,7 +69,7 @@ export function main() {
                 titular = readlinesync.question("");
 
                 console.log("Digite o Tipo da Conta: ");
-                tipo = readlinesync.keyInSelect(tipoContas, "", { cancel: false }) + 1;
+                tipo = readlinesync.keyInSelect(tipoContas, "", { cancel: false });
 
                 console.log("Digite o Saldo da Conta: ");
                 saldo = readlinesync.questionFloat("");
